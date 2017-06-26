@@ -31,19 +31,6 @@ class SearchViewController: UIViewController, UITableViewDataSource, UITableView
     
 // MARK: - SearchBar Delegate
     
-//    func searchBar(searchBar: UISearchBar, textDidChange searchText: String) {
-//       
-//        apiService.getSynonyms(searchText) { (response, error) in
-//            
-//            if let syn = response {
-////                print (syn.noun)
-//            }
-//            
-//        }
-//        
-//    }
-
-    
     func searchBar(searchBar: UISearchBar, textDidChange searchText: String) {
         
         timer?.invalidate()

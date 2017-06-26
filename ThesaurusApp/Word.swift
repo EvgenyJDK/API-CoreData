@@ -12,7 +12,7 @@ import ObjectMapper
 class  Word: Mappable {
     
     var synonyms: [String]?
-//    var antonyms: [String]?
+    var antonyms: [String]?
     
     required init?(_ map: Map) {
     }
