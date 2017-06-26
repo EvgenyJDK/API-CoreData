@@ -12,5 +12,7 @@ import UIKit
 class SynonymCell: UITableViewCell {
     
     
+    @IBOutlet weak var itemLabel: UILabel!
+    
     
 }

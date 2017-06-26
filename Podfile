@@ -11,6 +11,7 @@ target 'ThesaurusApp' do
 pod 'Alamofire','~>3.4'
 pod 'AlamofireObjectMapper'
 pod 'ObjectMapper','~>1.0'
+pod 'SwiftyJSON'
 
 
 

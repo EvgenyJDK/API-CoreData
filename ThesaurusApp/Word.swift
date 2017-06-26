@@ -7,10 +7,20 @@
 //
 
 import Foundation
+import ObjectMapper
 
-class  Word {
+class  Word: Mappable {
     
-    var title: String?
     var synonyms: [String]?
+//    var antonyms: [String]?
+    
+    required init?(_ map: Map) {
+    }
+    
+    func mapping(map: Map) {
+        
+        synonyms <- map ["syn"]
+//        antonyms <- map ["ant"]
+    }
     
 }

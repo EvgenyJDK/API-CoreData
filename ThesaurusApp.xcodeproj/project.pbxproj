@@ -18,7 +18,10 @@
 		C3D597B21F0118E600202F11 /* Word.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3D597B11F0118E600202F11 /* Word.swift */; };
 		C3D597B61F011D6A00202F11 /* Podfile in Resources */ = {isa = PBXBuildFile; fileRef = C3D597B51F011D6A00202F11 /* Podfile */; };
 		C3D597B91F01242F00202F11 /* SynonymCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3D597B81F01242F00202F11 /* SynonymCell.swift */; };
-		C3D597BB1F012D0D00202F11 /* APIService.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3D597BA1F012D0D00202F11 /* APIService.swift */; };
+		C3D597BB1F012D0D00202F11 /* ApiService.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3D597BA1F012D0D00202F11 /* ApiService.swift */; };
+		C3D597BD1F01379200202F11 /* ThesaurusResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3D597BC1F01379200202F11 /* ThesaurusResponse.swift */; };
+		C3D597C01F01446C00202F11 /* GlobalConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3D597BF1F01446C00202F11 /* GlobalConstants.swift */; };
+		C3D597C21F014ED400202F11 /* ApiError.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3D597C11F014ED400202F11 /* ApiError.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -34,9 +37,12 @@
 		C3D597A61F01129B00202F11 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C3D597AC1F0116FD00202F11 /* SearchViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
 		C3D597B11F0118E600202F11 /* Word.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Word.swift; sourceTree = "<group>"; };
-		C3D597B51F011D6A00202F11 /* Podfile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Podfile; sourceTree = "<group>"; };
+		C3D597B51F011D6A00202F11 /* Podfile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Podfile; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		C3D597B81F01242F00202F11 /* SynonymCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SynonymCell.swift; sourceTree = "<group>"; };
-		C3D597BA1F012D0D00202F11 /* APIService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = APIService.swift; sourceTree = "<group>"; };
+		C3D597BA1F012D0D00202F11 /* ApiService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ApiService.swift; sourceTree = "<group>"; };
+		C3D597BC1F01379200202F11 /* ThesaurusResponse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ThesaurusResponse.swift; sourceTree = "<group>"; };
+		C3D597BF1F01446C00202F11 /* GlobalConstants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GlobalConstants.swift; sourceTree = "<group>"; };
+		C3D597C11F014ED400202F11 /* ApiError.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ApiError.swift; sourceTree = "<group>"; };
 		E3EEB859A0B62BA9848ED2C6 /* Pods_ThesaurusApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ThesaurusApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -95,6 +101,7 @@
 				C3D597AF1F01185800202F11 /* Model */,
 				C3D597B01F01186200202F11 /* View */,
 				C3D597AE1F01184500202F11 /* Controllers */,
+				C3D597BE1F01444A00202F11 /* Service */,
 				C3D597971F01129B00202F11 /* AppDelegate.swift */,
 				C3D597991F01129B00202F11 /* ViewController.swift */,
 				C3D5979B1F01129B00202F11 /* Main.storyboard */,
@@ -133,9 +140,19 @@
 		C3D597B71F01221400202F11 /* API */ = {
 			isa = PBXGroup;
 			children = (
-				C3D597BA1F012D0D00202F11 /* APIService.swift */,
+				C3D597BA1F012D0D00202F11 /* ApiService.swift */,
+				C3D597BC1F01379200202F11 /* ThesaurusResponse.swift */,
+				C3D597C11F014ED400202F11 /* ApiError.swift */,
 			);
 			name = API;
+			sourceTree = "<group>";
+		};
+		C3D597BE1F01444A00202F11 /* Service */ = {
+			isa = PBXGroup;
+			children = (
+				C3D597BF1F01446C00202F11 /* GlobalConstants.swift */,
+			);
+			name = Service;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -262,10 +279,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				C3D597AD1F0116FD00202F11 /* SearchViewController.swift in Sources */,
-				C3D597BB1F012D0D00202F11 /* APIService.swift in Sources */,
+				C3D597C01F01446C00202F11 /* GlobalConstants.swift in Sources */,
+				C3D597BB1F012D0D00202F11 /* ApiService.swift in Sources */,
+				C3D597C21F014ED400202F11 /* ApiError.swift in Sources */,
 				C3D5979A1F01129B00202F11 /* ViewController.swift in Sources */,
 				C3D597B21F0118E600202F11 /* Word.swift in Sources */,
 				C3D597B91F01242F00202F11 /* SynonymCell.swift in Sources */,
+				C3D597BD1F01379200202F11 /* ThesaurusResponse.swift in Sources */,
 				C3D597A01F01129B00202F11 /* ThesaurusApp.xcdatamodeld in Sources */,
 				C3D597981F01129B00202F11 /* AppDelegate.swift in Sources */,
 			);

@@ -1,5 +1,5 @@
 //
-//  APIService.swift
+//  APIError.swift
 //  ThesaurusApp
 //
 //  Created by Administrator on 26.06.17.
@@ -8,6 +8,6 @@
 
 import Foundation
 
-class  APIService  {
+class ApiError: ErrorType {
     
 }
