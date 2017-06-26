@@ -21,10 +21,10 @@
             </objects>
             <point key="canvasLocation" x="-479" y="154"/>
         </scene>
-        <!--View Controller-->
+        <!--Search View Controller-->
         <scene sceneID="qcm-Y0-Kcn">
             <objects>
-                <viewController id="rdH-kp-Ohj" sceneMemberID="viewController">
+                <viewController id="rdH-kp-Ohj" customClass="SearchViewController" customModule="ThesaurusApp" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="vjl-Al-Ajz"/>
                         <viewControllerLayoutGuide type="bottom" id="Ozg-zX-UdT"/>
@@ -55,6 +55,11 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                     <navigationItem key="navigationItem" id="QnX-ZR-78p"/>
+                    <connections>
+                        <outlet property="searchWordBar" destination="iZn-0W-P9M" id="5Pj-CJ-QzU"/>
+                        <outlet property="synonymTableView" destination="zN7-cx-WRZ" id="G4T-Q5-bad"/>
+                        <outlet property="synonymWordTableView" destination="zN7-cx-WRZ" id="I49-uw-B0I"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="WWM-A0-WkL" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

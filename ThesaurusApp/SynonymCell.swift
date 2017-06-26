@@ -1,5 +1,5 @@
 //
-//  FinderViewController.swift
+//  SynonymCell.swift
 //  ThesaurusApp
 //
 //  Created by Administrator on 26.06.17.
@@ -9,7 +9,7 @@
 import Foundation
 import UIKit
 
-class FinderViewController {
+class SynonymCell: UITableViewCell {
     
     
     
