@@ -9,22 +9,78 @@
 import Foundation
 import ObjectMapper
 
-class  ThesaurusResponse: Mappable {
+//class  ThesaurusResponse: Mappable {
+//
+//    var noun: Word?
+//    var verb: Word?
+//    
+//    required init?(_ map: Map) {
+//    }
+//    
+//    func mapping(map: Map) {
+//        noun <- map["noun"]
+//        verb <- map["verb"]
+//    }
+//}
 
-//    var noun: [String: Word]?
-//    var verb: [String: Word]?
 
-    var noun: Word?
-    var verb: Word?
+//struct  ThesaurusResponse: Mappable {
+//    
+//    var noun: Word?
+//    var verb: Word?
+//    
+//    init?(_ map: Map) {
+//    }
+//    
+//    mutating func mapping(map: Map) {
+//        noun <- map["noun"]
+//        verb <- map["verb"]
+//    }
+//}
+
+
+
+//struct  ThesaurusResponse: Mappable {
+//    
+//    var noun: String?
+//    var verb: String?
+//    
+//    var nounSynonum: [String]?
+//    var verbSynonum: [String]?
+//    
+//    init?(_ map: Map) {
+//    }
+//    
+//    mutating func mapping(map: Map) {
+//        noun <- map["noun"]
+//        verb <- map["verb"]
+//        nounSynonum <- map ["noun.syn"]
+//        verbSynonum <- map ["verb.syn"]
+//    }
+//}
+
+
+
+struct  ThesaurusResponse: Mappable {
+
+        var noun: WordType?
+        var verb: WordType?
     
+//    var wordType: WordType?
     
-    required init?(_ map: Map) {
+    init?(_ map: Map) {
     }
-    
-    
-    func mapping(map: Map) {
+
+    mutating func mapping(map: Map) {
+        
         noun <- map["noun"]
         verb <- map["verb"]
+        
+//        wordType <- map ["verb"]
+//        wordType <- map ["noun"]
+
+        
+        
     }
-    
 }
+

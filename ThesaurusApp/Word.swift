@@ -9,18 +9,60 @@
 import Foundation
 import ObjectMapper
 
-class  Word: Mappable {
+//class  Word: Mappable {
+//    
+//    var synonyms: [String]?
+//    var antonyms: [String]?
+//    
+//    required init?(_ map: Map) {
+//    }
+//    
+//    func mapping(map: Map) {
+//        
+//        synonyms <- map ["syn"]
+////        antonyms <- map ["ant"]
+//    }
+//  
+//}
+
+
+//struct  Word: Mappable {
+//    
+//    var synonyms: [String]?
+//    var antonyms: [String]?
+//    
+//    init?(_ map: Map) {
+//    }
+//    
+//    mutating func mapping(map: Map) {
+//        
+//        synonyms <- map ["syn"]
+//        //        antonyms <- map ["ant"]
+//    }
+//    
+//}
+
+
+
+struct  Word: Mappable {
+
+//    var name: String?
     
     var synonyms: [String]?
-    var antonyms: [String]?
+//    var antonyms: [String]?
     
-    required init?(_ map: Map) {
+    init?(_ map: Map) {
     }
     
-    func mapping(map: Map) {
+    mutating func mapping(map: Map) {
         
-        synonyms <- map ["syn"]
-//        antonyms <- map ["ant"]
+         synonyms <- map ["syn"]
+        
+//        name <- map ["noun"]
+//        synonyms <- map ["\(name).syn"]
+        //        antonyms <- map ["ant"]
     }
     
 }
+
+
