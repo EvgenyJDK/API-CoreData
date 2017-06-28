@@ -26,6 +26,7 @@ class SearchViewController: UIViewController, UITableViewDataSource, UITableView
     var array = [Word]()
     
     
+    
     var sections: [String] = []
     
     override func viewDidLoad() {
@@ -55,11 +56,11 @@ class SearchViewController: UIViewController, UITableViewDataSource, UITableView
     
     func sendRequest(timer: NSTimer) {
         let searchText = timer.userInfo as! String
-        apiService.getSynonyms(searchText) { (response, error) in
+//        coreDataService.saveSearch(searchText)
+        apiService.getSynonyms(searchText) { (response, error, text) in
             
             if let syn = response {
 
-/*
                 if let nounSyn = syn.noun?.synonyms {
                     self.noun = nounSyn
                     self.sections.append("noun")
@@ -68,9 +69,7 @@ class SearchViewController: UIViewController, UITableViewDataSource, UITableView
                     self.sections.append("verb")
                     self.verb = verbSyn
                 }
-*/
-                
-                
+
                 
 //                print(syn.sectionName?.count)
 //                print(syn.sectionName)
@@ -79,11 +78,24 @@ class SearchViewController: UIViewController, UITableViewDataSource, UITableView
 //                print("VERB = \(syn.verb)")
                 
                 
-                print("wordType NOUN = \(syn.noun)")
-                print("wordType VERB = \(syn.verb)")
+//                print(response)
+                print("search = \(text)")
+//                print("wordType  = \(syn)")
+//                print("wordType  = \(syn.verb)")
+//                print("wordType NOUN = \(syn.noun)")
+//                print("wordType VERB = \(syn.verb)")
+                
+
+                
+//                let typeVal = ["noun": syn.noun!, "verb": syn.verb!]
+//                let model = Model(title: text!, typeValue: typeVal)
+//                print("MODEL = \(model)")
+//                print("TYPES = \(typeVal)")
+
+//                self.coreDataService.saveModel(model)
                 
                 
-//                self.coreDataService.saveWord(syn.verb!)
+                self.coreDataService.saveWord(syn.noun!)
 //                self.coreDataService.getSearchHistory()
                 
                 self.synonymTableView.reloadData()

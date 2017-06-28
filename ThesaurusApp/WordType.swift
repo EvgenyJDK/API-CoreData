@@ -14,7 +14,6 @@ struct WordType: Mappable {
     var synonyms: [String]?
     
     init?(_ map: Map) {
-        
     }
     
     mutating func mapping(map: Map) {

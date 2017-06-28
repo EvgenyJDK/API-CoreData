@@ -12,6 +12,9 @@
 		C30D92801F025DD40092EA92 /* CoreDataService.swift in Sources */ = {isa = PBXBuildFile; fileRef = C30D927F1F025DD40092EA92 /* CoreDataService.swift */; };
 		C30D92821F027DB30092EA92 /* WordType.swift in Sources */ = {isa = PBXBuildFile; fileRef = C30D92811F027DB30092EA92 /* WordType.swift */; };
 		C30D92841F0285A90092EA92 /* HistoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C30D92831F0285A90092EA92 /* HistoryViewController.swift */; };
+		C30D92861F0294B40092EA92 /* SynonymViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C30D92851F0294B40092EA92 /* SynonymViewController.swift */; };
+		C30D92881F0296F10092EA92 /* Synonym.swift in Sources */ = {isa = PBXBuildFile; fileRef = C30D92871F0296F10092EA92 /* Synonym.swift */; };
+		C30D928A1F02A4C70092EA92 /* Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = C30D92891F02A4C70092EA92 /* Model.swift */; };
 		C3D597981F01129B00202F11 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3D597971F01129B00202F11 /* AppDelegate.swift */; };
 		C3D5979A1F01129B00202F11 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3D597991F01129B00202F11 /* ViewController.swift */; };
 		C3D5979D1F01129B00202F11 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C3D5979B1F01129B00202F11 /* Main.storyboard */; };
@@ -35,6 +38,9 @@
 		C30D927F1F025DD40092EA92 /* CoreDataService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoreDataService.swift; sourceTree = "<group>"; };
 		C30D92811F027DB30092EA92 /* WordType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WordType.swift; sourceTree = "<group>"; };
 		C30D92831F0285A90092EA92 /* HistoryViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HistoryViewController.swift; sourceTree = "<group>"; };
+		C30D92851F0294B40092EA92 /* SynonymViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SynonymViewController.swift; sourceTree = "<group>"; };
+		C30D92871F0296F10092EA92 /* Synonym.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Synonym.swift; sourceTree = "<group>"; };
+		C30D92891F02A4C70092EA92 /* Model.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Model.swift; sourceTree = "<group>"; };
 		C3D597941F01129B00202F11 /* ThesaurusApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ThesaurusApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C3D597971F01129B00202F11 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C3D597991F01129B00202F11 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -135,6 +141,7 @@
 			children = (
 				C3D597AC1F0116FD00202F11 /* SearchViewController.swift */,
 				C30D92831F0285A90092EA92 /* HistoryViewController.swift */,
+				C30D92851F0294B40092EA92 /* SynonymViewController.swift */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -144,6 +151,8 @@
 			children = (
 				C3D597B11F0118E600202F11 /* Word.swift */,
 				C30D92811F027DB30092EA92 /* WordType.swift */,
+				C30D92871F0296F10092EA92 /* Synonym.swift */,
+				C30D92891F02A4C70092EA92 /* Model.swift */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -303,11 +312,14 @@
 				C3D597BB1F012D0D00202F11 /* ApiService.swift in Sources */,
 				C30D92821F027DB30092EA92 /* WordType.swift in Sources */,
 				C3D597C21F014ED400202F11 /* ApiError.swift in Sources */,
+				C30D92881F0296F10092EA92 /* Synonym.swift in Sources */,
 				C30D92841F0285A90092EA92 /* HistoryViewController.swift in Sources */,
 				C30D92801F025DD40092EA92 /* CoreDataService.swift in Sources */,
 				C30D927D1F022A200092EA92 /* Section.swift in Sources */,
 				C3D5979A1F01129B00202F11 /* ViewController.swift in Sources */,
+				C30D928A1F02A4C70092EA92 /* Model.swift in Sources */,
 				C3D597B21F0118E600202F11 /* Word.swift in Sources */,
+				C30D92861F0294B40092EA92 /* SynonymViewController.swift in Sources */,
 				C3D597B91F01242F00202F11 /* SynonymCell.swift in Sources */,
 				C3D597BD1F01379200202F11 /* ThesaurusResponse.swift in Sources */,
 				C3D597A01F01129B00202F11 /* ThesaurusApp.xcdatamodeld in Sources */,

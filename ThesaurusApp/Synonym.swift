@@ -9,7 +9,7 @@
 import Foundation
 import CoreData
 
-struct SynonymWord {
+struct Synonym {
     
     var titleWord: String!
     

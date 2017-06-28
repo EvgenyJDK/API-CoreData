@@ -15,7 +15,7 @@ import ObjectMapper
 class  ApiService  {
 
     
-    func getSynonyms(inputText: String, callback: (ThesaurusResponse?, ApiError?) -> Void) {
+    func getSynonyms(inputText: String, callback: (ThesaurusResponse?, ApiError?, String?) -> Void) {
 
         let searchRequest = "\(GlobalConstants.urlRequest)/\(inputText)/\(GlobalConstants.format)"
         
@@ -32,7 +32,7 @@ class  ApiService  {
             
             if let json = response.result.value as? [String: AnyObject] {
                 let item = ThesaurusResponse(JSON: json)
-                callback(item, nil)
+                callback(item, nil, inputText)
             }
         }
     }

@@ -7,3 +7,23 @@
 //
 
 import Foundation
+import ObjectMapper
+
+struct Model {
+    
+    
+    var title: String
+//    var type: String?
+//    var values: Word
+    var typeValue: [String: WordType]
+    
+//    init?(type: String, values: Word) {
+//        
+//        self.type = type
+//        self.values = values
+//    }
+    
+    
+
+    
+}

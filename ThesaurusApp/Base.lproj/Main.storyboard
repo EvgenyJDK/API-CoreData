@@ -33,8 +33,12 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="zN7-cx-WRZ">
-                                <rect key="frame" x="0.0" y="108" width="600" height="442"/>
+                            <searchBar contentMode="redraw" translatesAutoresizingMaskIntoConstraints="NO" id="iZn-0W-P9M">
+                                <rect key="frame" x="0.0" y="64" width="600" height="44"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </searchBar>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" alwaysBounceVertical="YES" showsVerticalScrollIndicator="NO" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="zN7-cx-WRZ">
+                                <rect key="frame" x="0.0" y="64" width="600" height="442"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="SynonymCell" id="pdx-yV-YzA" customClass="SynonymCell" customModule="ThesaurusApp" customModuleProvider="target">
@@ -58,10 +62,6 @@
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
-                            <searchBar contentMode="redraw" translatesAutoresizingMaskIntoConstraints="NO" id="iZn-0W-P9M">
-                                <rect key="frame" x="0.0" y="64" width="600" height="44"/>
-                                <textInputTraits key="textInputTraits"/>
-                            </searchBar>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
@@ -70,6 +70,7 @@
                             <constraint firstAttribute="trailing" secondItem="iZn-0W-P9M" secondAttribute="trailing" id="eZ3-G1-RtG"/>
                             <constraint firstItem="zN7-cx-WRZ" firstAttribute="leading" secondItem="oL5-rf-GEP" secondAttribute="leading" id="gfV-wH-FF2"/>
                             <constraint firstAttribute="trailing" secondItem="zN7-cx-WRZ" secondAttribute="trailing" id="jz8-6l-nAO"/>
+                            <constraint firstItem="zN7-cx-WRZ" firstAttribute="top" secondItem="iZn-0W-P9M" secondAttribute="bottom" id="q2E-Q0-dS9"/>
                             <constraint firstItem="Ozg-zX-UdT" firstAttribute="top" secondItem="zN7-cx-WRZ" secondAttribute="bottom" constant="50" id="tFJ-uL-CLD"/>
                             <constraint firstItem="iZn-0W-P9M" firstAttribute="top" secondItem="vjl-Al-Ajz" secondAttribute="bottom" id="uwP-dw-7zX"/>
                         </constraints>
@@ -99,7 +100,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="W2h-8L-B9a">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="Cell" id="W2h-8L-B9a">
                                 <rect key="frame" x="0.0" y="92" width="600" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="W2h-8L-B9a" id="89e-IZ-Fod">
