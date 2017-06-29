@@ -13,12 +13,11 @@ import CoreData
 class HistoryViewController: UITableViewController {
     
     
-    var fetchedResultsController: NSFetchedResultsController!
-    var coreDataService = CoreDataService()
+//    var fetchedResultsController: NSFetchedResultsController!
+//    var coreDataService = CoreDataService()
     
     var searchListMOC = [NSManagedObject]()
-    var searchHistory: [String] = []
-
+    var searchHistory = [String]()
     
     override func viewWillAppear(animated: Bool) {
 //        do {
@@ -57,7 +56,7 @@ class HistoryViewController: UITableViewController {
     
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         
-        let cell = tableView.dequeueReusableCellWithIdentifier("HistoryCell")! as! SynonymCell
+        let cell = tableView.dequeueReusableCellWithIdentifier("HistoryCell")! as UITableViewCell
         
 //        let word = self.fetchedResultsController.objectAtIndexPath(indexPath) as! WordEntity
         cell.textLabel?.text = searchHistory[indexPath.row]
@@ -70,9 +69,7 @@ class HistoryViewController: UITableViewController {
  // MARK: - TableView Delegate
     
     override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-
         self.performSegueWithIdentifier("showSynonyms", sender: indexPath)
-        
     }
     
     
@@ -81,16 +78,14 @@ class HistoryViewController: UITableViewController {
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         
-        print ([sender!.row])
-        
-//        let segueItem = Synonym(object: searchListMOC[sender!.row]) // no good
-//        let synonymController : SynonymViewController = segue.destinationViewController as! SynonymViewController
-//        synonymController.synonymWords = segueItem
-        
+        var segueList = [Synonym]()
+        for item in searchListMOC {
+            if (item.valueForKey("keyword") as! String) == (searchHistory[sender!.row]) {
+                segueList.append(Synonym(object: item))
+            }
+        }
+        let synonymController : SynonymViewController = segue.destinationViewController as! SynonymViewController
+        synonymController.synonymWords = segueList
     }
-
-    
-    
-    
     
 }

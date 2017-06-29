@@ -11,26 +11,35 @@ import Foundation
 
 class SynonymViewController: UITableViewController {
 
-//    var coreDataService = CoreDataService()
-    var synonymWords: Synonym?
+    var synonymWords = [Synonym]()
+
     
     override func viewDidLoad() {
-        
+    }
+    
+    
+    override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
+        return synonymWords.count
     }
     
     
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        
-//        return synonymWords.
-        return 1
+        return synonymWords[section].synonyms.count
     }
+    
+    
+    override func tableView(tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+        return synonymWords[section].type
+    }
+    
     
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         
-        let synonymCell = tableView.dequeueReusableCellWithIdentifier("Cell")! as UITableViewCell
+        let synonymCell = tableView.dequeueReusableCellWithIdentifier("SynonymCell")! as UITableViewCell
         
+        synonymCell.textLabel?.text = synonymWords[indexPath.section].synonyms[indexPath.row]
+
         return synonymCell
-        
     }
     
     
