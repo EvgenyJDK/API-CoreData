@@ -98,24 +98,24 @@ class CoreDataService  {
 
 
 
-    func saveWord (inputWord: WordType) {
-        
-        print("COREDATA = \(inputWord)")
-        
-        let entity = NSEntityDescription.entityForName("Word", inManagedObjectContext: self.managedContext)
-        let item = NSManagedObject(entity: entity!, insertIntoManagedObjectContext: self.managedContext)
-
-        item.setValue(inputWord.synonyms, forKey: "nounSynonym")
-        
-        do {
-            try self.managedContext.save()
-            self.wordsListMOC.append(item)
-            print("saved to CD")
-        }
-        catch {
-            print("Error Can't save to CD")
-        }
-    }
+//    func saveWord (inputWord: WordType) {
+//        
+//        print("COREDATA = \(inputWord)")
+//        
+//        let entity = NSEntityDescription.entityForName("Word", inManagedObjectContext: self.managedContext)
+//        let item = NSManagedObject(entity: entity!, insertIntoManagedObjectContext: self.managedContext)
+//
+//        item.setValue(inputWord.synonyms, forKey: "nounSynonym")
+//        
+//        do {
+//            try self.managedContext.save()
+//            self.wordsListMOC.append(item)
+//            print("saved to CD")
+//        }
+//        catch {
+//            print("Error Can't save to CD")
+//        }
+//    }
     
 
     

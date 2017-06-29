@@ -109,7 +109,7 @@ class SearchViewController: UIViewController, UITableViewDataSource, UITableView
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         
-        let synonymCell = tableView.dequeueReusableCellWithIdentifier("SynonymCell") as! SynonymCell
+        let synonymCell = tableView.dequeueReusableCellWithIdentifier("Cell") as! SynonymCell
         
         synonymCell.itemLabel.text = wordListMOC[indexPath.section].valueForKey("synonyms")![indexPath.row] as? String
         
@@ -119,18 +119,20 @@ class SearchViewController: UIViewController, UITableViewDataSource, UITableView
 
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         
-//        if segue.identifier == "showSearchHistory" {
+        if segue.identifier == "showSearchHistory" {
 //            let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
 //            let moc = appDelegate.dataController.managedObjectContext
-//            
-//            let historyVC = segue.destinationViewController as! HistoryViewController
-//            
+            
+            let historyVC = segue.destinationViewController as! HistoryViewController
+            
 //            let request = NSFetchRequest(entityName: "WordEntity")
 //            request.sortDescriptors = [NSSortDescriptor(key: "title", ascending: true)]
 //            
 //            historyVC.fetchedResultsController = NSFetchedResultsController(fetchRequest: request, managedObjectContext: moc, sectionNameKeyPath: nil, cacheName: nil)
-//            
-//        }
+            
+            historyVC.searchListMOC = coreDataService.getSearchList()
+            
+        }
 
     }
     

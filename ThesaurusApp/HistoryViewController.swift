@@ -14,69 +14,54 @@ class HistoryViewController: UITableViewController {
     
     
     var fetchedResultsController: NSFetchedResultsController!
-    
-    
-    
     var coreDataService = CoreDataService()
+    
     var searchListMOC = [NSManagedObject]()
-    
-    var items: [String] = []
-    
-    let arr = ["dvdvd", "eggrbrbf", "353533", "76768u6756", "dvdvd", "eggrbrbf", "353533", "76768u6756"]
-    
-    
+    var searchHistory: [String] = []
+
     
     override func viewWillAppear(animated: Bool) {
-        do {
-            try self.fetchedResultsController.performFetch()
-        } catch {
-            fatalError("tags fetch failed")
-        }
+//        do {
+//            try self.fetchedResultsController.performFetch()
+//        } catch {
+//            fatalError("tags fetch failed")
+//        }
 
     }
-    
-    
-    
+
     
     override func viewDidLoad() {
-//        getPersistentData()
+        
+        sortSearchList(searchListMOC)
         self.tableView.reloadData()
     }
     
     
-    
-    func getPersistentData() {
-        searchListMOC = coreDataService.getSearchList()
-        print("getPersistentData = \((searchListMOC[0].valueForKey("nounSynonym")!).count)")
-         print("getPersistentData = \((searchListMOC[0].valueForKey("nounSynonym")!).count)")
+    func sortSearchList(searchListMOC: [NSManagedObject]) {
         
-        items = searchListMOC[0].valueForKey("nounSynonym")! as! [String]
-        
-//        print("getPersistentData = \((searchListMOC[0].valueForKey("title")!).count)")
-//        items = searchListMOC[0].valueForKey("title")! as! [String]
-        print(searchListMOC)
-        
+        var set = Set<String>()
+        for item in searchListMOC {
+            set.insert(item.valueForKey("keyword") as! String)
+        }
+        searchHistory = set.sort({ $0 < $1 })
     }
-
     
     
  // MARK: - TableView DataSource
     
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
 //        return self.fetchedResultsController.sections![section].numberOfObjects
-//        return (searchListMOC[0].valueForKey("nounSynonym")!).count
-//        return arr.count
-        return 1
+        return searchHistory.count ?? 1
     }
     
     
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         
-        let cell = tableView.dequeueReusableCellWithIdentifier("HistoryCell")! as UITableViewCell
+        let cell = tableView.dequeueReusableCellWithIdentifier("HistoryCell")! as! SynonymCell
         
 //        let word = self.fetchedResultsController.objectAtIndexPath(indexPath) as! WordEntity
-//        cell.textLabel?.text = word.title
-//        cell.textLabel?.text = items[indexPath.row]
+        cell.textLabel?.text = searchHistory[indexPath.row]
+
         return cell
     }
 
@@ -85,8 +70,7 @@ class HistoryViewController: UITableViewController {
  // MARK: - TableView Delegate
     
     override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-        
-        
+
         self.performSegueWithIdentifier("showSynonyms", sender: indexPath)
         
     }
