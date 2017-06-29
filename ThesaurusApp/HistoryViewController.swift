@@ -12,23 +12,10 @@ import CoreData
 
 class HistoryViewController: UITableViewController {
     
-    
-//    var fetchedResultsController: NSFetchedResultsController!
-//    var coreDataService = CoreDataService()
-    
+
     var searchListMOC = [NSManagedObject]()
     var searchHistory = [String]()
-    
-    override func viewWillAppear(animated: Bool) {
-//        do {
-//            try self.fetchedResultsController.performFetch()
-//        } catch {
-//            fatalError("tags fetch failed")
-//        }
 
-    }
-
-    
     override func viewDidLoad() {
         
         sortSearchList(searchListMOC)
@@ -49,7 +36,6 @@ class HistoryViewController: UITableViewController {
  // MARK: - TableView DataSource
     
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-//        return self.fetchedResultsController.sections![section].numberOfObjects
         return searchHistory.count ?? 1
     }
     
@@ -57,10 +43,7 @@ class HistoryViewController: UITableViewController {
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         
         let cell = tableView.dequeueReusableCellWithIdentifier("HistoryCell")! as UITableViewCell
-        
-//        let word = self.fetchedResultsController.objectAtIndexPath(indexPath) as! WordEntity
         cell.textLabel?.text = searchHistory[indexPath.row]
-
         return cell
     }
 

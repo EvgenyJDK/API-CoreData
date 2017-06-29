@@ -36,7 +36,6 @@ class CoreDataService  {
                 
                 do {
                     try self!.managedContext.save()
-//                        self?.wordsListMOC.append(item)
                     print("saved Noun to CD")
                 }
                 catch {
@@ -66,7 +65,6 @@ class CoreDataService  {
                 
                 do {
                     try self!.managedContext.save()
-//            self.wordsListMOC.append(item)
                     print("saved Verb to CD")
                 }
                 catch {
@@ -75,8 +73,6 @@ class CoreDataService  {
             }
         }
     }
-
-
 
 
     func checkForExistInStorage (checkList: [NSManagedObject], wordType: String, keyword: String, callback: (Bool)->()) {
@@ -96,28 +92,6 @@ class CoreDataService  {
         }
     }
 
-
-
-//    func saveWord (inputWord: WordType) {
-//        
-//        print("COREDATA = \(inputWord)")
-//        
-//        let entity = NSEntityDescription.entityForName("Word", inManagedObjectContext: self.managedContext)
-//        let item = NSManagedObject(entity: entity!, insertIntoManagedObjectContext: self.managedContext)
-//
-//        item.setValue(inputWord.synonyms, forKey: "nounSynonym")
-//        
-//        do {
-//            try self.managedContext.save()
-//            self.wordsListMOC.append(item)
-//            print("saved to CD")
-//        }
-//        catch {
-//            print("Error Can't save to CD")
-//        }
-//    }
-    
-
     
     func getSearchList() -> [NSManagedObject] {
     
@@ -129,17 +103,12 @@ class CoreDataService  {
         catch {
             print("fetch error")
         }
-//        for item in wordsListMOC {
-//            print("KEYWORD = \(item.valueForKey("keyword")!)")
-//            print("WORDTYPE = \(item.valueForKey("wordType")!)")
-//            print("SYNONYMS = \(item.valueForKey("synonyms")!)")
-//        }
         return wordsListMOC
     }
     
     
     
-    func getWordEntityOnDemand(keyword: String) -> [NSManagedObject] {
+    func getWordEntity(keyword: String) -> [NSManagedObject] {
         
         let fetchRequest = NSFetchRequest(entityName: "WordEntity")
         do {
@@ -151,18 +120,12 @@ class CoreDataService  {
         }
 
         wordEntities = []
-        print("DEMAND before = \(wordEntities.count)")
-        
         for item in wordsListMOC {
             if item.valueForKey("keyword") as! String == keyword {
                 wordEntities.append(item)
             }
         }
-        
-        print("DEMAND after = \(wordEntities.count)")
         return wordEntities
     }
-
-    
     
 }

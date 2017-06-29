@@ -9,7 +9,6 @@
 import Foundation
 import Alamofire
 import AlamofireObjectMapper
-import ObjectMapper
 
 
 class  ApiService  {
@@ -19,15 +18,6 @@ class  ApiService  {
 
         let searchRequest = "\(Constants.urlRequest)/\(inputText)/\(Constants.format)"
         
-//        Alamofire.request(.GET, searchRequest).responseObject {
-//            (response: Response<ThesaurusResponse, NSError>) in
-//            
-//            if let searchSynonymResults = response.result.value {
-//                callback(searchSynonymResults, nil)
-//            }
-//        }
-      
-        
         Alamofire.request(.GET, searchRequest).responseJSON { response in
             
             if let json = response.result.value as? [String: AnyObject] {
@@ -36,7 +26,5 @@ class  ApiService  {
             }
         }
     }
-
-    
 }
 

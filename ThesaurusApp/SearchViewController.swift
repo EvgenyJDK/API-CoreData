@@ -18,10 +18,9 @@ class SearchViewController: UIViewController, UITableViewDataSource, UITableView
 
     let apiService = ApiService()
     let coreDataService = CoreDataService()
-    
     var timer: NSTimer? = nil
     var wordListMOC = [NSManagedObject]()
-//    var searchListMOC: [NSManagedObject]!
+    
     
     override func viewDidLoad() {
         
@@ -30,7 +29,6 @@ class SearchViewController: UIViewController, UITableViewDataSource, UITableView
         synonymTableView.delegate = self
         
     }
-    
     
     
 // MARK: - SearchBar Delegate
@@ -50,46 +48,22 @@ class SearchViewController: UIViewController, UITableViewDataSource, UITableView
     func sendRequest(timer: NSTimer) {
         
         let searchText = timer.userInfo as! String
-        
         if searchText == "" {
             wordListMOC = []
             synonymTableView.reloadData()
         } else {
             apiService.getSynonyms(searchText) { (response, error, keyword) in
-                
                 if let nounSynonyms = response?.noun {
                     self.coreDataService.saveNounSynonyms(nounSynonyms, keyword: keyword!)
                 }
                 if let verbSynonyms = response?.verb {
                     self.coreDataService.saveVerbSynonyms(verbSynonyms, keyword: keyword!)
                 }
-                self.wordListMOC = self.coreDataService.getWordEntityOnDemand(keyword!)
+                self.wordListMOC = self.coreDataService.getWordEntity(keyword!)
                 self.synonymTableView.reloadData()
             }
         }
     }
- 
-    
-    
-    
-    func fetch() {
-        
-        
-//        let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
-//        let moc = appDelegate.dataController.managedObjectContext
-//        
-////        let tagsVC = segue.destinationViewController as! TagsTableViewController
-//        
-//        let request = NSFetchRequest(entityName: "WordEntity")
-//        request.sortDescriptors = [NSSortDescriptor(key: "title", ascending: true)]
-//        
-////        tagsVC.fetchedResultsController = NSFetchedResultsController(fetchRequest: request, managedObjectContext: moc, sectionNameKeyPath: nil, cacheName: nil)
-        
-        
-    }
-
-
-    
     
     
  // MARK: - TableView DataSource
@@ -110,9 +84,7 @@ class SearchViewController: UIViewController, UITableViewDataSource, UITableView
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         
         let synonymCell = tableView.dequeueReusableCellWithIdentifier("Cell") as! SynonymCell
-        
         synonymCell.itemLabel.text = wordListMOC[indexPath.section].valueForKey("synonyms")![indexPath.row] as? String
-        
         return synonymCell
     }
     
@@ -120,21 +92,9 @@ class SearchViewController: UIViewController, UITableViewDataSource, UITableView
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         
         if segue.identifier == "showSearchHistory" {
-//            let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
-//            let moc = appDelegate.dataController.managedObjectContext
-            
             let historyVC = segue.destinationViewController as! HistoryViewController
-            
-//            let request = NSFetchRequest(entityName: "WordEntity")
-//            request.sortDescriptors = [NSSortDescriptor(key: "title", ascending: true)]
-//            
-//            historyVC.fetchedResultsController = NSFetchedResultsController(fetchRequest: request, managedObjectContext: moc, sectionNameKeyPath: nil, cacheName: nil)
-            
             historyVC.searchListMOC = coreDataService.getSearchList()
-            
         }
-
     }
-    
     
 }

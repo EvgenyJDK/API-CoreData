@@ -11,6 +11,7 @@ import Foundation
 
 class SynonymViewController: UITableViewController {
 
+    
     var synonymWords = [Synonym]()
 
     
@@ -36,9 +37,7 @@ class SynonymViewController: UITableViewController {
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         
         let synonymCell = tableView.dequeueReusableCellWithIdentifier("SynonymCell")! as UITableViewCell
-        
         synonymCell.textLabel?.text = synonymWords[indexPath.section].synonyms[indexPath.row]
-
         return synonymCell
     }
     
