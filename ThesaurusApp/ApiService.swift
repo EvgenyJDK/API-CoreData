@@ -17,7 +17,7 @@ class  ApiService  {
     
     func getSynonyms(inputText: String, callback: (ThesaurusResponse?, ApiError?, String?) -> Void) {
 
-        let searchRequest = "\(GlobalConstants.urlRequest)/\(inputText)/\(GlobalConstants.format)"
+        let searchRequest = "\(Constants.urlRequest)/\(inputText)/\(Constants.format)"
         
 //        Alamofire.request(.GET, searchRequest).responseObject {
 //            (response: Response<ThesaurusResponse, NSError>) in

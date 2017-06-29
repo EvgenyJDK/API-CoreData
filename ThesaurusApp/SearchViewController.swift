@@ -8,6 +8,7 @@
 
 import Foundation
 import UIKit
+import CoreData
 
 class SearchViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, UISearchBarDelegate {
     
@@ -17,24 +18,16 @@ class SearchViewController: UIViewController, UITableViewDataSource, UITableView
 
     let apiService = ApiService()
     let coreDataService = CoreDataService()
+    
     var timer: NSTimer? = nil
-    
-    
-    let arr = ["dvdvd", "eggrbrbf", "353533", "76768u6756", "dvdvd", "eggrbrbf", "353533", "76768u6756"]
-    var noun = []
-    var verb = []
-    var array = [Word]()
-    
-    
-    
-    var sections: [String] = []
+    var wordListMOC = [NSManagedObject]()
+//    var searchListMOC: [NSManagedObject]!
     
     override func viewDidLoad() {
         
         searchWordBar.delegate = self
         synonymTableView.dataSource = self
         synonymTableView.delegate = self
-   
         
     }
     
@@ -43,10 +36,10 @@ class SearchViewController: UIViewController, UITableViewDataSource, UITableView
 // MARK: - SearchBar Delegate
     
     func searchBar(searchBar: UISearchBar, textDidChange searchText: String) {
-        
+
         timer?.invalidate()
         timer = NSTimer.scheduledTimerWithTimeInterval(
-            0.7,
+            0.5,
             target: self,
             selector: #selector(SearchViewController.sendRequest),
             userInfo: searchText,
@@ -55,102 +48,91 @@ class SearchViewController: UIViewController, UITableViewDataSource, UITableView
     
     
     func sendRequest(timer: NSTimer) {
+        
         let searchText = timer.userInfo as! String
-//        coreDataService.saveSearch(searchText)
-        apiService.getSynonyms(searchText) { (response, error, text) in
-            
-            if let syn = response {
-
-                if let nounSyn = syn.noun?.synonyms {
-                    self.noun = nounSyn
-                    self.sections.append("noun")
+        
+        if searchText == "" {
+            wordListMOC = []
+            synonymTableView.reloadData()
+        } else {
+            apiService.getSynonyms(searchText) { (response, error, keyword) in
+                
+                if let nounSynonyms = response?.noun {
+                    self.coreDataService.saveNounSynonyms(nounSynonyms, keyword: keyword!)
                 }
-                if let verbSyn = syn.verb?.synonyms {
-                    self.sections.append("verb")
-                    self.verb = verbSyn
+                if let verbSynonyms = response?.verb {
+                    self.coreDataService.saveVerbSynonyms(verbSynonyms, keyword: keyword!)
                 }
-
-                
-//                print(syn.sectionName?.count)
-//                print(syn.sectionName)
-//                print("KEYS = \(syn.sectionName?.keys)")
-//                print("NOUN = \(syn.noun)")
-//                print("VERB = \(syn.verb)")
-                
-                
-//                print(response)
-                print("search = \(text)")
-//                print("wordType  = \(syn)")
-//                print("wordType  = \(syn.verb)")
-//                print("wordType NOUN = \(syn.noun)")
-//                print("wordType VERB = \(syn.verb)")
-                
-
-                
-//                let typeVal = ["noun": syn.noun!, "verb": syn.verb!]
-//                let model = Model(title: text!, typeValue: typeVal)
-//                print("MODEL = \(model)")
-//                print("TYPES = \(typeVal)")
-
-//                self.coreDataService.saveModel(model)
-                
-                
-                self.coreDataService.saveWord(syn.noun!)
-//                self.coreDataService.getSearchHistory()
-                
+                self.wordListMOC = self.coreDataService.getWordEntityOnDemand(keyword!)
                 self.synonymTableView.reloadData()
             }
-            
         }
     }
  
     
     
     
+    func fetch() {
+        
+        
+//        let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
+//        let moc = appDelegate.dataController.managedObjectContext
+//        
+////        let tagsVC = segue.destinationViewController as! TagsTableViewController
+//        
+//        let request = NSFetchRequest(entityName: "WordEntity")
+//        request.sortDescriptors = [NSSortDescriptor(key: "title", ascending: true)]
+//        
+////        tagsVC.fetchedResultsController = NSFetchedResultsController(fetchRequest: request, managedObjectContext: moc, sectionNameKeyPath: nil, cacheName: nil)
+        
+        
+    }
+
+
+    
+    
     
  // MARK: - TableView DataSource
     
-//    func numberOfSectionsInTableView(tableView: UITableView) -> Int {
-//        
-//        return Section.numberOfSections
-////        return arr.count
-//    }
-//
-//   
+    func numberOfSectionsInTableView(tableView: UITableView) -> Int {
+        return wordListMOC.count ?? 1
+    }
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        
-//        switch Section(rawValue: section) {
-//        case .Noun?:    return arr.count
-//        case .Verb?: return arr.count
-//            
-//        case .None:     return 0
-//        }
-//        print(sections.count)
-//        return (sections.count)
-        
-        return noun.count
+        return wordListMOC[section].valueForKey("synonyms")?.count ?? 0
     }
-   
-//    func tableView(tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-//        print(section)
-//        return sections[section]
-//    }
+    
+    func tableView(tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+        return wordListMOC[section].valueForKey("wordType") as? String ?? ""
+    }
     
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         
         let synonymCell = tableView.dequeueReusableCellWithIdentifier("SynonymCell") as! SynonymCell
         
-        synonymCell.itemLabel.text = noun[indexPath.row] as? String
+        synonymCell.itemLabel.text = wordListMOC[indexPath.section].valueForKey("synonyms")![indexPath.row] as? String
         
         return synonymCell
     }
     
-    
-    
-// MARK: - TableView Delegate
-    
+
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        
+//        if segue.identifier == "showSearchHistory" {
+//            let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
+//            let moc = appDelegate.dataController.managedObjectContext
+//            
+//            let historyVC = segue.destinationViewController as! HistoryViewController
+//            
+//            let request = NSFetchRequest(entityName: "WordEntity")
+//            request.sortDescriptors = [NSSortDescriptor(key: "title", ascending: true)]
+//            
+//            historyVC.fetchedResultsController = NSFetchedResultsController(fetchRequest: request, managedObjectContext: moc, sectionNameKeyPath: nil, cacheName: nil)
+//            
+//        }
+
+    }
     
     
 }

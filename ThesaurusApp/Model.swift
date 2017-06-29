@@ -15,7 +15,7 @@ struct Model {
     var title: String
 //    var type: String?
 //    var values: Word
-    var typeValue: [String: WordType]
+    var typeValue: [String: Any]
     
 //    init?(type: String, values: Word) {
 //        

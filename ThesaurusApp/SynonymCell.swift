@@ -14,5 +14,9 @@ class SynonymCell: UITableViewCell {
     
     @IBOutlet weak var itemLabel: UILabel!
     
+    override func prepareForReuse() {
+        super.prepareForReuse()
+    }
+    
     
 }

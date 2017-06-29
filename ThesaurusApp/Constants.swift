@@ -8,7 +8,7 @@
 
 import Foundation
 
-struct  GlobalConstants {
+struct  Constants {
     
     static let url = "https://words.bighugelabs.com/api/"
     static let version = "2/"

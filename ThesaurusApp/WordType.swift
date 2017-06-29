@@ -9,6 +9,22 @@
 import Foundation
 import ObjectMapper
 
+/*
+struct WordType: Mappable {
+    
+    var type: [String]?
+    var synonyms: [String]?
+    
+    init?(_ map: Map) {
+    }
+    
+    mutating func mapping(map: Map) {
+        synonyms <- map ["syn"]
+    }
+}
+*/
+
+
 struct WordType: Mappable {
     
     var synonyms: [String]?
@@ -19,6 +35,4 @@ struct WordType: Mappable {
     mutating func mapping(map: Map) {
         synonyms <- map ["syn"]
     }
-    
-    
 }

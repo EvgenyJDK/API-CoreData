@@ -12,6 +12,11 @@ import CoreData
 
 class HistoryViewController: UITableViewController {
     
+    
+    var fetchedResultsController: NSFetchedResultsController!
+    
+    
+    
     var coreDataService = CoreDataService()
     var searchListMOC = [NSManagedObject]()
     
@@ -20,15 +25,28 @@ class HistoryViewController: UITableViewController {
     let arr = ["dvdvd", "eggrbrbf", "353533", "76768u6756", "dvdvd", "eggrbrbf", "353533", "76768u6756"]
     
     
+    
+    override func viewWillAppear(animated: Bool) {
+        do {
+            try self.fetchedResultsController.performFetch()
+        } catch {
+            fatalError("tags fetch failed")
+        }
+
+    }
+    
+    
+    
+    
     override func viewDidLoad() {
-        getPersistentData()
+//        getPersistentData()
         self.tableView.reloadData()
     }
     
     
     
     func getPersistentData() {
-        searchListMOC = coreDataService.getSearchHistory()
+        searchListMOC = coreDataService.getSearchList()
         print("getPersistentData = \((searchListMOC[0].valueForKey("nounSynonym")!).count)")
          print("getPersistentData = \((searchListMOC[0].valueForKey("nounSynonym")!).count)")
         
@@ -45,19 +63,21 @@ class HistoryViewController: UITableViewController {
  // MARK: - TableView DataSource
     
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return (searchListMOC[0].valueForKey("nounSynonym")!).count
+//        return self.fetchedResultsController.sections![section].numberOfObjects
+//        return (searchListMOC[0].valueForKey("nounSynonym")!).count
 //        return arr.count
+        return 1
     }
+    
     
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         
         let cell = tableView.dequeueReusableCellWithIdentifier("HistoryCell")! as UITableViewCell
         
-     
-        cell.textLabel?.text = items[indexPath.row]
-        
+//        let word = self.fetchedResultsController.objectAtIndexPath(indexPath) as! WordEntity
+//        cell.textLabel?.text = word.title
+//        cell.textLabel?.text = items[indexPath.row]
         return cell
-        
     }
 
     

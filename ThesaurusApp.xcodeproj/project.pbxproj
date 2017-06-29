@@ -15,6 +15,9 @@
 		C30D92861F0294B40092EA92 /* SynonymViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C30D92851F0294B40092EA92 /* SynonymViewController.swift */; };
 		C30D92881F0296F10092EA92 /* Synonym.swift in Sources */ = {isa = PBXBuildFile; fileRef = C30D92871F0296F10092EA92 /* Synonym.swift */; };
 		C30D928A1F02A4C70092EA92 /* Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = C30D92891F02A4C70092EA92 /* Model.swift */; };
+		C30D92981F038A9D0092EA92 /* DataController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C30D92971F038A9D0092EA92 /* DataController.swift */; };
+		C360C41B1F03A9C6000A6FF6 /* NounType.swift in Sources */ = {isa = PBXBuildFile; fileRef = C360C41A1F03A9C6000A6FF6 /* NounType.swift */; };
+		C360C41D1F03A9D7000A6FF6 /* VerbType.swift in Sources */ = {isa = PBXBuildFile; fileRef = C360C41C1F03A9D7000A6FF6 /* VerbType.swift */; };
 		C3D597981F01129B00202F11 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3D597971F01129B00202F11 /* AppDelegate.swift */; };
 		C3D5979A1F01129B00202F11 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3D597991F01129B00202F11 /* ViewController.swift */; };
 		C3D5979D1F01129B00202F11 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C3D5979B1F01129B00202F11 /* Main.storyboard */; };
@@ -22,12 +25,11 @@
 		C3D597A21F01129B00202F11 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C3D597A11F01129B00202F11 /* Assets.xcassets */; };
 		C3D597A51F01129B00202F11 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C3D597A31F01129B00202F11 /* LaunchScreen.storyboard */; };
 		C3D597AD1F0116FD00202F11 /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3D597AC1F0116FD00202F11 /* SearchViewController.swift */; };
-		C3D597B21F0118E600202F11 /* Word.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3D597B11F0118E600202F11 /* Word.swift */; };
 		C3D597B61F011D6A00202F11 /* Podfile in Resources */ = {isa = PBXBuildFile; fileRef = C3D597B51F011D6A00202F11 /* Podfile */; };
 		C3D597B91F01242F00202F11 /* SynonymCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3D597B81F01242F00202F11 /* SynonymCell.swift */; };
 		C3D597BB1F012D0D00202F11 /* ApiService.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3D597BA1F012D0D00202F11 /* ApiService.swift */; };
 		C3D597BD1F01379200202F11 /* ThesaurusResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3D597BC1F01379200202F11 /* ThesaurusResponse.swift */; };
-		C3D597C01F01446C00202F11 /* GlobalConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3D597BF1F01446C00202F11 /* GlobalConstants.swift */; };
+		C3D597C01F01446C00202F11 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3D597BF1F01446C00202F11 /* Constants.swift */; };
 		C3D597C21F014ED400202F11 /* ApiError.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3D597C11F014ED400202F11 /* ApiError.swift */; };
 /* End PBXBuildFile section */
 
@@ -41,6 +43,9 @@
 		C30D92851F0294B40092EA92 /* SynonymViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SynonymViewController.swift; sourceTree = "<group>"; };
 		C30D92871F0296F10092EA92 /* Synonym.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Synonym.swift; sourceTree = "<group>"; };
 		C30D92891F02A4C70092EA92 /* Model.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Model.swift; sourceTree = "<group>"; };
+		C30D92971F038A9D0092EA92 /* DataController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataController.swift; sourceTree = "<group>"; };
+		C360C41A1F03A9C6000A6FF6 /* NounType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NounType.swift; sourceTree = "<group>"; };
+		C360C41C1F03A9D7000A6FF6 /* VerbType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VerbType.swift; sourceTree = "<group>"; };
 		C3D597941F01129B00202F11 /* ThesaurusApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ThesaurusApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C3D597971F01129B00202F11 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C3D597991F01129B00202F11 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -50,12 +55,11 @@
 		C3D597A41F01129B00202F11 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		C3D597A61F01129B00202F11 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C3D597AC1F0116FD00202F11 /* SearchViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
-		C3D597B11F0118E600202F11 /* Word.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Word.swift; sourceTree = "<group>"; };
 		C3D597B51F011D6A00202F11 /* Podfile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Podfile; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		C3D597B81F01242F00202F11 /* SynonymCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SynonymCell.swift; sourceTree = "<group>"; };
 		C3D597BA1F012D0D00202F11 /* ApiService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ApiService.swift; sourceTree = "<group>"; };
 		C3D597BC1F01379200202F11 /* ThesaurusResponse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ThesaurusResponse.swift; sourceTree = "<group>"; };
-		C3D597BF1F01446C00202F11 /* GlobalConstants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GlobalConstants.swift; sourceTree = "<group>"; };
+		C3D597BF1F01446C00202F11 /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		C3D597C11F014ED400202F11 /* ApiError.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ApiError.swift; sourceTree = "<group>"; };
 		E3EEB859A0B62BA9848ED2C6 /* Pods_ThesaurusApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ThesaurusApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -93,6 +97,7 @@
 			isa = PBXGroup;
 			children = (
 				C30D927F1F025DD40092EA92 /* CoreDataService.swift */,
+				C30D92971F038A9D0092EA92 /* DataController.swift */,
 			);
 			name = CoreData;
 			sourceTree = "<group>";
@@ -124,7 +129,7 @@
 				C3D597B01F01186200202F11 /* View */,
 				C3D597AE1F01184500202F11 /* Controllers */,
 				C30D927E1F025D150092EA92 /* CoreData */,
-				C3D597BE1F01444A00202F11 /* Service */,
+				C3D597BE1F01444A00202F11 /* Resourses */,
 				C3D597971F01129B00202F11 /* AppDelegate.swift */,
 				C3D597991F01129B00202F11 /* ViewController.swift */,
 				C3D5979B1F01129B00202F11 /* Main.storyboard */,
@@ -149,10 +154,11 @@
 		C3D597AF1F01185800202F11 /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				C3D597B11F0118E600202F11 /* Word.swift */,
 				C30D92811F027DB30092EA92 /* WordType.swift */,
 				C30D92871F0296F10092EA92 /* Synonym.swift */,
 				C30D92891F02A4C70092EA92 /* Model.swift */,
+				C360C41A1F03A9C6000A6FF6 /* NounType.swift */,
+				C360C41C1F03A9D7000A6FF6 /* VerbType.swift */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -176,12 +182,12 @@
 			name = API;
 			sourceTree = "<group>";
 		};
-		C3D597BE1F01444A00202F11 /* Service */ = {
+		C3D597BE1F01444A00202F11 /* Resourses */ = {
 			isa = PBXGroup;
 			children = (
-				C3D597BF1F01446C00202F11 /* GlobalConstants.swift */,
+				C3D597BF1F01446C00202F11 /* Constants.swift */,
 			);
-			name = Service;
+			name = Resourses;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -308,17 +314,19 @@
 			buildActionMask = 2147483647;
 			files = (
 				C3D597AD1F0116FD00202F11 /* SearchViewController.swift in Sources */,
-				C3D597C01F01446C00202F11 /* GlobalConstants.swift in Sources */,
+				C3D597C01F01446C00202F11 /* Constants.swift in Sources */,
 				C3D597BB1F012D0D00202F11 /* ApiService.swift in Sources */,
 				C30D92821F027DB30092EA92 /* WordType.swift in Sources */,
 				C3D597C21F014ED400202F11 /* ApiError.swift in Sources */,
 				C30D92881F0296F10092EA92 /* Synonym.swift in Sources */,
+				C360C41B1F03A9C6000A6FF6 /* NounType.swift in Sources */,
 				C30D92841F0285A90092EA92 /* HistoryViewController.swift in Sources */,
 				C30D92801F025DD40092EA92 /* CoreDataService.swift in Sources */,
 				C30D927D1F022A200092EA92 /* Section.swift in Sources */,
 				C3D5979A1F01129B00202F11 /* ViewController.swift in Sources */,
+				C360C41D1F03A9D7000A6FF6 /* VerbType.swift in Sources */,
+				C30D92981F038A9D0092EA92 /* DataController.swift in Sources */,
 				C30D928A1F02A4C70092EA92 /* Model.swift in Sources */,
-				C3D597B21F0118E600202F11 /* Word.swift in Sources */,
 				C30D92861F0294B40092EA92 /* SynonymViewController.swift in Sources */,
 				C3D597B91F01242F00202F11 /* SynonymCell.swift in Sources */,
 				C3D597BD1F01379200202F11 /* ThesaurusResponse.swift in Sources */,

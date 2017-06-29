@@ -42,7 +42,7 @@
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="SynonymCell" id="pdx-yV-YzA" customClass="SynonymCell" customModule="ThesaurusApp" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="92" width="600" height="44"/>
+                                        <rect key="frame" x="0.0" y="28" width="600" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="pdx-yV-YzA" id="wlo-sr-ZY3">
                                             <rect key="frame" x="0.0" y="0.0" width="600" height="43"/>
@@ -78,7 +78,7 @@
                     <navigationItem key="navigationItem" title="Search" id="QnX-ZR-78p">
                         <barButtonItem key="rightBarButtonItem" title="History" id="HWd-3V-cjm" userLabel="History">
                             <connections>
-                                <segue destination="CX7-Ru-6uu" kind="show" id="SHJ-Ut-aYu"/>
+                                <segue destination="CX7-Ru-6uu" kind="show" identifier="showSearchHistory" id="SHJ-Ut-aYu"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
