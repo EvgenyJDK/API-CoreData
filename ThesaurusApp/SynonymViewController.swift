@@ -16,6 +16,7 @@ class SynonymViewController: UITableViewController {
 
     
     override func viewDidLoad() {
+        super.viewDidLoad()
     }
     
     

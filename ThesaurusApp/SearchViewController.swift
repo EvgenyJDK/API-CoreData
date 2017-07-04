@@ -18,16 +18,12 @@ class SearchViewController: UIViewController, UITableViewDataSource, UITableView
 
     let apiService = ApiService()
     let coreDataService = CoreDataService()
-    var timer: NSTimer? = nil
+    var timer: NSTimer?
     var wordListMOC = [NSManagedObject]()
     
     
     override func viewDidLoad() {
-        
-        searchWordBar.delegate = self
-        synonymTableView.dataSource = self
-        synonymTableView.delegate = self
-        
+        super.viewDidLoad()
     }
     
     
@@ -53,6 +49,11 @@ class SearchViewController: UIViewController, UITableViewDataSource, UITableView
             synonymTableView.reloadData()
         } else {
             apiService.getSynonyms(searchText) { (response, error, keyword) in
+                
+
+                
+//                self.coreDataService.saveModel(response!, keyword: keyword!)
+                
                 if let nounSynonyms = response?.noun {
                     self.coreDataService.saveNounSynonyms(nounSynonyms, keyword: keyword!)
                 }

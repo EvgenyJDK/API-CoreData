@@ -17,7 +17,7 @@ class HistoryViewController: UITableViewController {
     var searchHistory = [String]()
 
     override func viewDidLoad() {
-        
+        super.viewDidLoad()
         sortSearchList(searchListMOC)
         self.tableView.reloadData()
     }

@@ -12,10 +12,10 @@
 		C30D92841F0285A90092EA92 /* HistoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C30D92831F0285A90092EA92 /* HistoryViewController.swift */; };
 		C30D92861F0294B40092EA92 /* SynonymViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C30D92851F0294B40092EA92 /* SynonymViewController.swift */; };
 		C30D92881F0296F10092EA92 /* Synonym.swift in Sources */ = {isa = PBXBuildFile; fileRef = C30D92871F0296F10092EA92 /* Synonym.swift */; };
+		C31B16F81F04EFE300658327 /* WordType.swift in Sources */ = {isa = PBXBuildFile; fileRef = C31B16F71F04EFE300658327 /* WordType.swift */; };
 		C360C41B1F03A9C6000A6FF6 /* NounType.swift in Sources */ = {isa = PBXBuildFile; fileRef = C360C41A1F03A9C6000A6FF6 /* NounType.swift */; };
 		C360C41D1F03A9D7000A6FF6 /* VerbType.swift in Sources */ = {isa = PBXBuildFile; fileRef = C360C41C1F03A9D7000A6FF6 /* VerbType.swift */; };
 		C3D597981F01129B00202F11 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3D597971F01129B00202F11 /* AppDelegate.swift */; };
-		C3D5979A1F01129B00202F11 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3D597991F01129B00202F11 /* ViewController.swift */; };
 		C3D5979D1F01129B00202F11 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C3D5979B1F01129B00202F11 /* Main.storyboard */; };
 		C3D597A01F01129B00202F11 /* ThesaurusApp.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = C3D5979E1F01129B00202F11 /* ThesaurusApp.xcdatamodeld */; };
 		C3D597A21F01129B00202F11 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C3D597A11F01129B00202F11 /* Assets.xcassets */; };
@@ -36,11 +36,11 @@
 		C30D92831F0285A90092EA92 /* HistoryViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HistoryViewController.swift; sourceTree = "<group>"; };
 		C30D92851F0294B40092EA92 /* SynonymViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SynonymViewController.swift; sourceTree = "<group>"; };
 		C30D92871F0296F10092EA92 /* Synonym.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Synonym.swift; sourceTree = "<group>"; };
+		C31B16F71F04EFE300658327 /* WordType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WordType.swift; sourceTree = "<group>"; };
 		C360C41A1F03A9C6000A6FF6 /* NounType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NounType.swift; sourceTree = "<group>"; };
 		C360C41C1F03A9D7000A6FF6 /* VerbType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VerbType.swift; sourceTree = "<group>"; };
 		C3D597941F01129B00202F11 /* ThesaurusApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ThesaurusApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C3D597971F01129B00202F11 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		C3D597991F01129B00202F11 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		C3D5979C1F01129B00202F11 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		C3D5979F1F01129B00202F11 /* ThesaurusApp.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = ThesaurusApp.xcdatamodel; sourceTree = "<group>"; };
 		C3D597A11F01129B00202F11 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -122,7 +122,6 @@
 				C30D927E1F025D150092EA92 /* CoreData */,
 				C3D597BE1F01444A00202F11 /* Resourses */,
 				C3D597971F01129B00202F11 /* AppDelegate.swift */,
-				C3D597991F01129B00202F11 /* ViewController.swift */,
 				C3D5979B1F01129B00202F11 /* Main.storyboard */,
 				C3D597A11F01129B00202F11 /* Assets.xcassets */,
 				C3D597A31F01129B00202F11 /* LaunchScreen.storyboard */,
@@ -146,6 +145,7 @@
 			isa = PBXGroup;
 			children = (
 				C30D92871F0296F10092EA92 /* Synonym.swift */,
+				C31B16F71F04EFE300658327 /* WordType.swift */,
 				C360C41A1F03A9C6000A6FF6 /* NounType.swift */,
 				C360C41C1F03A9D7000A6FF6 /* VerbType.swift */,
 			);
@@ -308,8 +308,8 @@
 				C30D92881F0296F10092EA92 /* Synonym.swift in Sources */,
 				C360C41B1F03A9C6000A6FF6 /* NounType.swift in Sources */,
 				C30D92841F0285A90092EA92 /* HistoryViewController.swift in Sources */,
+				C31B16F81F04EFE300658327 /* WordType.swift in Sources */,
 				C30D92801F025DD40092EA92 /* CoreDataService.swift in Sources */,
-				C3D5979A1F01129B00202F11 /* ViewController.swift in Sources */,
 				C360C41D1F03A9D7000A6FF6 /* VerbType.swift in Sources */,
 				C30D92861F0294B40092EA92 /* SynonymViewController.swift in Sources */,
 				C3D597B91F01242F00202F11 /* SynonymCell.swift in Sources */,

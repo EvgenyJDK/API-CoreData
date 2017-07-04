@@ -32,4 +32,26 @@ struct  ThesaurusResponse: Mappable {
 
 
 
+//struct  ThesaurusResponse: Mappable {
+//    
+//    let types = ["noun", "verb", "adverb", "adjective"]
+////    var noun: [String: Any]?
+////    var verb: [String: Any]?
+//    var nounSynonyms: [String]?
+//    var verbSynonyms: [String]?
+//    
+//    init?(_ map: Map) {
+//    }
+//    
+//    mutating func mapping(map: Map) {
+////        noun <- map["noun"]
+////        verb <- map["verb"]
+//        nounSynonyms <- map ["noun.syn"]
+//        verbSynonyms <- map ["verb.syn"]
+//    }
+//
+//}
+
+
+
 

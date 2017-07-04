@@ -17,6 +17,7 @@ class CoreDataService  {
     lazy var managedContext = (UIApplication.sharedApplication().delegate as! AppDelegate).managedObjectContext
     
     
+    
     func saveNounSynonyms(response: NounType, keyword: String) {
         
         let checkList = getSearchList()
@@ -127,5 +128,50 @@ class CoreDataService  {
         }
         return wordEntities
     }
-    
 }
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    /*
+     func saveModel (response: ThesaurusResponse, keyword: String) {
+     
+     print(response.nounSynonyms)
+     print(response.verbSynonyms)
+     
+     let entity = NSEntityDescription.entityForName("WordEntity", inManagedObjectContext: self.managedContext)
+     let item = NSManagedObject(entity: entity!, insertIntoManagedObjectContext: self.managedContext)
+     
+     item.setValue(keyword, forKey: "keyword")
+     
+     if response.nounSynonyms?.count != nil {
+     item.setValue(response.types[0], forKey: "wordType")
+     item.setValue(response.nounSynonyms, forKey: "synonyms")
+     }
+     
+     
+     
+     item.setValue(keyword, forKey: "keyword")
+     //        item.setValue(response.type, forKey: "wordType")
+     //        item.setValue(response.synonyms, forKey: "synonyms")
+     
+     do {
+     try self.managedContext.save()
+     print("saved Noun to CD")
+     }
+     catch {
+     print("Error Can't save to CD")
+     }
+     
+     
+     
+     
+     }
+     */
+
